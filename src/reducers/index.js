@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import contactReducer from "./contactReducer";
+import subwayReducer from "./subwayReducer";
 
 export default combineReducers({
-  contact: contactReducer
+  subway: subwayReducer
 });
