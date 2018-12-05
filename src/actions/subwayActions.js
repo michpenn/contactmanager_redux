@@ -1,21 +1,21 @@
 import { GET_ALL_SUBWAYS, UPDATE_STATUS } from "./types";
 import Mta from "mta-gtfs";
 //I think it would be better to use GtfsRealtimeBindings than Mta for the project
-const GtfsRealtimeBindings = require("gtfs-realtime-bindings");
-const request = require("request");
-const fs = require("fs");
-const FEED_ID = 0;
-
+// const GtfsRealtimeBindings = require("gtfs-realtime-bindings");
+// const request = require("request");
+// const fs = require("fs");
+// const FEED_ID = 0;
+// var ProtoBuf = require("protobufjs");
 const mta_key = "7b58c4cff16a70fd01f0b1eb08a9e99e";
 const mta = new Mta({
   key: mta_key
 });
 
-let requestSettings = {
-  method: "GET",
-  url: `http://datamine.mta.info/mta_esi.php?key=${mta_key}&feed_id=${FEED_ID}`,
-  encoding: null
-};
+// let requestSettings = {
+//   method: "GET",
+//   url: `http://datamine.mta.info/mta_esi.php?key=${mta_key}&feed_id=${FEED_ID}`,
+//   encoding: null
+// };
 
 export const getAllSubways = () => async dispatch => {
   // request(requestSettings, (error, response, body) => {
@@ -24,6 +24,7 @@ export const getAllSubways = () => async dispatch => {
   //     console.log("feed: ", feed);
   //   }
   // });
+
   const res = await mta.status("subway").then(function(result) {
     console.log("result: ", result);
     return result;
